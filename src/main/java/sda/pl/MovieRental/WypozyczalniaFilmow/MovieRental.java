@@ -46,26 +46,26 @@ public class MovieRental {
     }
 
     public Movies getMovieById(String id) {
-        return null;
+
+        return moviesList.stream().filter(x->x.getId().equals(id)).findFirst().orElse(null);
+
     }
 
     public Movies getMovieByTitle(String title) {
-        return null;
+
+        return moviesList.stream().filter(x->x.getTitle().equals(title)).findFirst().orElse(null);
+
     }
 
     public List<Customers> getCustomersList() {
         return customersList;
     }
 
-    public void setCustomersList(List<Customers> customersList) {
-        this.customersList = customersList;
-    }
+
 
     public List<Movies> getMoviesList() {
         return moviesList;
     }
 
-    public void setMoviesList(List<Movies> moviesList) {
-        this.moviesList = moviesList;
-    }
+
 }
