@@ -35,7 +35,14 @@ public class MovieRental {
         }
     }
 
-    public void addMovie(Movies movie) {
+    public void addMovie(Movies movie) throws MovieAlreadyExistsExeption {
+        boolean existMovie = moviesList.stream().noneMatch(x -> x.getId().equals(movie.getId()));
+        if(existMovie){
+            moviesList.add(movie);
+        }else {
+            throw new MovieAlreadyExistsExeption();
+        }
+
     }
 
     public Movies getMovieById(String id) {
